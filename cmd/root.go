@@ -7,7 +7,15 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use: "golias",
+	Use:   "golias",
+	Short: "golias is setup alias path in bash config.",
+}
+
+func init() {
+	cobra.OnInitialize()
+	rootCmd.AddCommand(
+		addCmd(),
+	)
 }
 
 func exitError(msg interface{}) {
